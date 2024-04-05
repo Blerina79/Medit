@@ -11,12 +11,14 @@ Version: 1.0
 /* Parent stylesheet should be loaded from functions.php not using @import */
 
 
-.contact-btn{
+header .contact-btn{
     display:inline-block;
     background-color:white;
     padding:6px 16px;
     border-radius:6px;
+    margin-top: 23px !important;
 }
+
 .popup-overlay{
     position:fixed;
     width:100%;

@@ -11,6 +11,8 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<!-- Intègre jQuery 3.5.1 depuis le CDN de Google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 	<?php wp_head(); ?>
 </head>
@@ -63,7 +65,7 @@ $lien=get_field('lien_google_maps', 161);
 			<div class="popup-address">
 				<p><b>Le lieu</b></p>
 				<?php echo $lieu; ?>
-				<a class="popup-link" href="<?php echo $lien; ?>" target="_blank">Voir sur Google Maps</a>
+				<a class="popup-link" href="<?php echo $lien['url']; ?>" target="_blank">Voir sur Google Maps</a>
 			</div>
 			<div class="popup-address">
 				<p><b>La date</b></p>

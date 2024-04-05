@@ -33,8 +33,24 @@ add_action( 'wp_enqueue_scripts', 'oceanwp_child_enqueue_parent_style' );
 
 
 function contact_btn( $items, $args ) {
-	$items .= '<a href="/contact" class="contact-btn">Nous contacter</a>';
+	$items .= '<a href="/medit/contact" class="contact-btn">Nous contacter</a>';
 	return $items;
 }
 
 add_filter( 'wp_nav_menu_items', 'contact_btn', 10, 2 );
+
+
+function remove_ob_end_flush_error()
+{
+    remove_action('shutdown', 'wp_ob_end_flush_all', 1);
+}
+add_action('init', 'remove_ob_end_flush_error');
+
+
+
+
+function oceanwp_child_enqueue_scripts()
+{
+    wp_enqueue_script('oceanwp-child-script', get_stylesheet_directory_uri() . '/scripts/script.js', array('jquery'), '1.0.0', true);
+}
+add_action('wp_enqueue_scripts', 'oceanwp_child_enqueue_scripts');
